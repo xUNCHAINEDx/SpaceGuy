@@ -3,8 +3,10 @@ extends Area2D
 export (int) var Velocidad
 var Movimiento = Vector2()
 var limite
+signal golpe
 
 func _ready():
+	hide() #Ocultamos el personaje al momento de iniciar el juego
 	limite = get_viewport_rect().size
 
 func _process(delta):
@@ -33,3 +35,37 @@ func _process(delta):
 		$Sprite_player.flip_v = Movimiento.y > 0
 	else:
 		$Sprite_player.animation = "frente"
+
+
+func _on_Player_body_entered(body): #cuando haya una colision con un cuerpo
+	hide()
+	emit_signal("golpe")
+	$CollisionShape2D.disabled = true
+	
+func inicio(pos):
+	position = pos
+	show() #Mostrar al personaje
+	$CollisionShape2D.disabled = false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
