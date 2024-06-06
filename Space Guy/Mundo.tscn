@@ -22,7 +22,7 @@ wait_time = 0.5
 
 [node name="IniciorTimer" type="Timer" parent="."]
 wait_time = 2.0
-autostart = true
+one_shot = true
 
 [node name="PosicionDeInicio" type="Position2D" parent="."]
 position = Vector2( 320, 480 )
