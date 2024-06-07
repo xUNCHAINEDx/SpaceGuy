@@ -6,7 +6,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 637, -1, 0, 0, 0, 0, 637, 956, 0, 0, 0, 0, -1, 956, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 638, 0, 0, 0, 0, 0, 637, 956, 0, 0, 0, 0, -2, 955, 0, 0, 0, 0, 0, 1 )
 }
 
 [node name="Mundo" type="Node"]
@@ -23,15 +23,17 @@ wait_time = 0.5
 [node name="IniciorTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+autostart = true
 
 [node name="PosicionDeInicio" type="Position2D" parent="."]
 position = Vector2( 320, 480 )
 
-[node name="camino" type="Path2D" parent="."]
+[node name="Camino" type="Path2D" parent="."]
 curve = SubResource( 1 )
 
-[node name="RocaPosicion" type="PathFollow2D" parent="camino"]
-rotation = -0.00156986
+[node name="RocaPosicion" type="PathFollow2D" parent="Camino"]
+position = Vector2( 0, 1 )
+rotation = -0.00156738
 
 [connection signal="golpe" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="RocaTimer" to="." method="_on_RocaTimer_timeout"]

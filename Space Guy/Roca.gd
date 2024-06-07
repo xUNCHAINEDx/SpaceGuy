@@ -12,6 +12,5 @@ func _ready():
 		$CollisionShape2D.scale.x = 1.5
 		$CollisionShape2D.scale.y = 1.5
 
-
 func _on_visibilidad_screen_exited():
 	queue_free() #Eliminar rocas fuera de pantalla
